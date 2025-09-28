@@ -1,0 +1,15 @@
+28/9/68
+Create Nested Box Website!
+มี 2 btn คือ Create Nested Box เอาไว้สร้าง box ใหม่ซ้อนเข้าไปใน box ก่อนหน้า กับ Reset เอาไว้ clear box ทั้งหมดและเริ่มนับใหม่
+
+สร้าง event listener ให้ button
+- Create Nested Box ทุกครั้งที่ click จะลดขนาด #outer ทีละนิด และ สร้าง box (div ที่มี class เป็น box) โดยคำนวณขนาดจาก box ก่อนหน้า
+และใส่ label บอกลำดับ เช่น #1, #2 ลงไปใน box ใช้ .appendChild() เพื่อวาง box ไว้ใน box ก่อนหน้า
+- update currentParent ให้ box ใหม่กลายเป็น box หลักสำหรับรอบถัดไป
+
+- Reset clear box ทั้งหมดใน #outer ด้วย .innerHTML = '' reset size ของ #outer ด้วย .style.width = '' และ .style.height = ''
+- set currentParent กลับไปเป็น #outer และ set depth เป็น 0
+
+method ใหม่ที่ได้เรียนรู้ (ไม่เคยเขียน แต่เจอมาแล้วดูน่าสนใจดี เลยลองเอามาเล่นดู https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+- getBoundingClientRect  ใช้ดึงข้อมูล position และ size ของ element บน viewport โดยจะ return มาเป็น obj ที่มี width , height , top , left (ที่ใช้)
+โดยใน project นี้ลองเอามาใช้หา size ของ box ล่าสุด ก่อนสร้าง box ใหม่

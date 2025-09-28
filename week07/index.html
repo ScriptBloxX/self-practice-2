@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th"></html></html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Nested Boxes 👿</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #controls {
+            margin-bottom: 12px;
+        }
+
+        button {
+            padding: 8px 14px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #outer {
+            width: 260px;
+            height: 260px;
+            border: 2px dashed #6b7280;
+            background: linear-gradient(180deg,#fff,#f0f4f8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: width .18s ease, height .18s ease;
+            overflow: visible;
+            margin-top: 8px;
+        }
+
+        .box {
+            box-sizing: border-box;
+            border: 2px solid rgba(99,102,241,0.9);
+            background: rgba(99,102,241,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .18s ease;
+            position: relative;
+            box-shadow: 0 6px 12px rgba(15,23,42,0.04);
+        }
+
+        .label {
+            font-size: 11px;
+            color: #374151;
+            background: rgba(255,255,255,0.85);
+            padding: 2px 6px;
+            border-radius: 8px;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button id="createBtn">Create Nested Box</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <div id="outer"></div>
+
+    <script>
+        const outer = document.getElementById('outer');
+        const createBtn = document.getElementById('createBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        const CHILD_SCALE = 0.78;
+        const OUTER_GROW_PX = -2;
+        const MIN_SIZE_PX = 12;
+        const MAX_DEPTH = 10;
+
+        let currentParent = outer;
+        let depth = 0;
+
+        createBtn.addEventListener('click', () => {
+            if (depth >= MAX_DEPTH) {
+                createBtn.disabled = true;
+                alert("max depth pls reset!")
+                return;
+            }
+
+            const newOuterW = outer.clientWidth + OUTER_GROW_PX;
+            const newOuterH = outer.clientHeight + OUTER_GROW_PX;
+            outer.style.width = newOuterW + 'px';
+            outer.style.height = newOuterH + 'px';
+
+            const parentRect = currentParent.getBoundingClientRect();
+            const childW = Math.max(MIN_SIZE_PX, Math.round(parentRect.width * CHILD_SCALE));
+            const childH = Math.max(MIN_SIZE_PX, Math.round(parentRect.height * CHILD_SCALE));
+
+            const box = document.createElement('div');
+            box.className = 'box';
+            box.style.width = childW + 'px';
+            box.style.height = childH + 'px';
+            box.style.margin = 'auto';
+
+            const label = document.createElement('div');
+            label.className = 'label';
+            depth += 1;
+            label.textContent = '#' + depth;
+            box.appendChild(label);
+
+            currentParent.appendChild(box);
+            currentParent = box;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            outer.style.width = '';
+            outer.style.height = '';
+            outer.innerHTML = '';
+            currentParent = outer;
+            depth = 0;
+            createBtn.disabled = false;
+        });
+    </script>
+</body>
+</html>
