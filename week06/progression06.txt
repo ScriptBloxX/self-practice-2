@@ -1,0 +1,11 @@
+สร้าง function addQuote
+- เป็น function ที่รับ object ที่มี id, content, และ author แล้วเอาไปใส่ใน quotes array ด้วย .push() จากนั้น return array ที่ update แล้ว
+
+สร้าง function deleteQuote
+- function รับ id ของ quote ที่ต้องการลบ ใช้ .findIndex() หา index ของ quote ที่มี id ตรงกัน แล้วใช้ .splice() ลบออกจาก array แล้วก็ return array ที่ update แล้ว
+
+สร้าง function updateQuote
+- function รับ id และ object ที่มีข้อมูลใหม่ (เช่น content หรือ author ที่อัพเดต) ใช้ .findIndex() หาตำแหน่งของ quote แล้วอัพเดตข้อมูลใน array แล้วก็ return array ที่อัพเดตแล้ว
+
+สร้าง function getAllQuotes
+- return array ของ quotes ทั้งหมดที่เก็บใน quotes
