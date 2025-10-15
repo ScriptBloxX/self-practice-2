@@ -1,0 +1,10 @@
+เพิ่ม Quote 3 อันด้วย addQuote():
+'Stay hungry, stay foolish.' — Steve Jobs
+'Do or do not. There is no try.' — Yoda
+'Simplicity is the ultimate sophistication.' — Leonardo da Vinci
+
+เขียน function renderQuotes():
+clear content ใน #quote-list
+ใช้ getAllQuotes() แล้วสร้าง <p> format "content" — author แล้วใส่ลงใน #quote-list
+
+และใช้ renderQuotes() เพื่อ render quote ใหม่
