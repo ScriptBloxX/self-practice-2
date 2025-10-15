@@ -1,0 +1,20 @@
+ใช้ getElementById เพื่อเลือก DOM elements ที่เกี่ยวข้อง: #quote-list, #quoteForm, #content, #author, #quoteId, #randomBtn, #randomQuoteDisplay
+สร้าง function createQuoteElement(quote)
+
+สร้าง function addQuoteToDOM, updateQuoteInDOM, deleteQuoteFromDOM, renderQuotes
+addQuoteToDOM(): ไว้เพิ่มคำคมใหม่เข้า DOM
+updateQuoteInDOM(): ไว้อัปเดตคำคมที่มีอยู่ใน DOM
+deleteQuoteFromDOM(): ไว้ลบคำคมจาก DOM
+renderQuotes(): ไว้โชว์คำคมทั้งหมดใน DOM
+
+สร้าง function showRandomQuote
+แสดงคำคมสุ่มจากคำคมที่มีในระบบ
+ถ้าไม่มีคำคมในระบบ จะโชว์ข้อความ "-- No quotes to show --"
+
+การจัดการ form เมื่อฟอร์มถูก submit หากมี quoteId ให้ทำ update quote หากไม่มี quoteId ให้สร้าง quote ใหม่
+reset form หลังการบันทึก
+
+เพิ่ม Event ให้ randomBtn click เพื่อ random quote , form submit เพื่อ add / update quote
+
+renderQuotes() เมื่อโหลดหน้าเว็บ เพื่อโชว์ quote ทั้งหมดเมื่อโหลด
+
