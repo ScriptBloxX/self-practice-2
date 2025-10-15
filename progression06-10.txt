@@ -1,0 +1,35 @@
+Week 06
+- สร้าง function addQuote: push object {id, content, author} ลง quotes
+- สร้าง function deleteQuote: ใช้ findIndex + splice ลบตาม id
+- สร้าง function updateQuote: หา quote ตาม id แล้วอัปเดต content/author
+- สร้าง function getAllQuotes: คืนค่า array quotes ปัจจุบัน
+
+Week 07 – Create Nested Box Website
+- ปุ่ม Create Nested Box: เพิ่มกล่องซ้อนใน #outer และติด label #1, #2, ...
+- ปุ่ม Reset: ล้างกล่องทั้งหมดและรีเซ็ตขนาด #outer
+- ใช้ appendChild เพื่อซ้อนกล่อง และอาจใช้ getBoundingClientRect ตรวจขนาด/ตำแหน่ง
+
+Week 08 – DOM Manipulation
+- เพิ่ม quote เริ่มต้น 3 อันด้วย addQuote
+- เขียน renderQuotes: ล้าง #quote-list แล้วสร้าง <p> "content" — author จาก getAllQuotes
+- เรียก renderQuotes หลังเพิ่มข้อมูล
+
+Week 09 – DOM Events & Interaction
+- ตั้งค่า elements: #quote-list, #quoteForm, #content, #author, #quoteId, #randomBtn, #randomQuoteDisplay
+- createQuoteElement: <div data-id> + <p> content/<p> author + button Edit/Delete
+- Form submit: มี id => updateQuote + update DOM, ไม่มี => addQuote + เพิ่ม DOM, แล้ว reset form
+- Random: showRandomQuote แสดง "-- No quotes to show --" เมื่อว่าง, ไม่ว่าง => "content" — author
+- renderQuotes ตอนโหลดหน้า
+
+Week 10 – Lab
+- applySettings: ปรับ สีพื้นหลัง, สีตัวอักษร, ขนาดตัวอักษร โดย update style ของ document.body ตามค่าที่เก็บจาก localStorage หรือค่า default
+- loadSettings: ดึงค่า setting จาก localStorage และแปลงเป็น object, ถ้าไม่มีข้อมูลจะใช้ค่า default
+- saveSettings: set setting ลงใน localStorage โดยแปลงเป็น JSON
+- resetSettings: ลบการตั้งค่าใน localStorag และ reset setting ไปเป็น default
+
+สรุปสิ่งที่ได้เรียนรู้
+- เรียนรู้การจัดการข้อมูล quote ด้วย function ต่างๆ ๆ เช่น เพิ่ม, ลบ, อัปเดต, และดึงข้อมูล
+- ฝึกใช้ DOM Manipulation เช่น การสร้าง element และการอัปเดต DOM
+- ได้เรียนรู้การทำงานกับ localStorage เพื่อเก็บและดึงค่าการตั้งค่าจากผู้ใช้
+- ฝึกการจัดการ event และ interaction บนหน้าเว็บ เช่น การใช้ form และ random quote
+- ได้ฝึกการใช้ getBoundingClientRect และ appendChild สำหรับการจัดการกับ DOM และทำให้หน้าเว็บมีความยืดหยุ่นมากขึ้น
