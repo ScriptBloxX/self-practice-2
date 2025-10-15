@@ -1,0 +1,26 @@
+applySettings(settings) 
+ - ใช้เพื่อนำ setting มาใช้บน web (background color, font color, font size) โดยจะ update style ของ document.body ตาม setting ที่กำหนด
+
+loadSettings() 
+ - ดึงการ setting ที่เก็บไว้ใน localStorage และแปลงข้อมูลจาก JSON เป็น object ถ้าไม่พบข้อมูลหรือ error บลาๆๆ จะใช้ default setting
+
+saveSettings(settings)
+ - save setting(json) ลงใน localStorage โดยแปลงข้อมูลเป็น JSON
+
+resetSettings()
+- remove ข้อมูลที่เก็บใน localStorage และ reset web ไปใช้ default
+
+เมื่อหน้า web โหลดเสร็จ (DOMContentLoaded) จะดึงการ setting จาก localStorage ด้วยฟังก์ชัน loadSettings()
+ใช้ applySettings(stored) เพื่อปรับ setting (เช่น สีพื้นหลัง, สีตัวอักษร, ขนาดตัวอักษร) ตามค่าที่เก็บไว้
+
+Save Button เมื่อ click saveBtn, จะดึงค่าจาก input และ select:
+bgColor: สีพื้นหลัง
+fontColor: สีตัวอักษร
+fontSize: ขนาดตัวอักษร
+แล้วบันทึกค่าลง localStorage และนำไปใช้ที่หน้า web ด้วย applySettings(settings)
+
+Reset Button
+ - เมื่อ click resetBtn จะลบ setting ที่เก็บใน localStorage และ reset setting บนหน้า web กลับไป default
+
+สรุปแล้วการตั้งค่าทั้งหมดจะถูกเก็บใน localStorage ดังนั้นแม้ว่าจะ refresh web ข้อมูลจะยังคงอยู่
+function applySettings ใช้สำหรับนำค่าที่เก็บมาใช้ทันที
